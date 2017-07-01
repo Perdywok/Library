@@ -23,7 +23,7 @@ namespace Library
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new LibraryOfBooks();
+            DataContext = new BookViewModel();
         }
     }
 }

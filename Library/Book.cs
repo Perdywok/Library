@@ -1,140 +1,37 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
 namespace Library
 {
-    class Book : INotifyPropertyChanged
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Book
     {
-        private string name;
-        private string autor;
-        private string cover;
-        private string genge;
-        private string publisher;
-        private string language;
-        private int price;
-        private int pages;
-        private int year;
+        public int id { get; set; }
 
+        [StringLength(50)]
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-                OnPropertyChanged("Name");
-            }
-        }
-        public string Autor
-        {
-            get
-            {
-                return autor;
-            }
-            set
-            {
-                autor = value;
-                OnPropertyChanged("Autor");
-            }
-        }
+        [StringLength(50)]
+        public string Autor { get; set; }
 
-        public string Cover
-        {
-            get
-            {
-                return cover;
-            }
-            set
-            {
-                cover = value;
-                OnPropertyChanged("Cover");
-            }
-        }
+        [StringLength(50)]
+        public string Cover { get; set; }
 
-        public string Genge
-        {
-            get
-            {
-                return genge;
-            }
-            set
-            {
-                genge = value;
-                OnPropertyChanged("Genge");
-            }
-        }
+        [StringLength(50)]
+        public string Genge { get; set; }
 
-        public string Publisher
-        {
-            get
-            {
-                return publisher;
-            }
-            set
-            {
-                publisher = value;
-                OnPropertyChanged("Publisher");
-            }
-        }
-        public string Language
-        {
-            get
-            {
-                return language;
-            }
-            set
-            {
-                language = value;
-                OnPropertyChanged("Language");
-            }
-        }
-        public int Year
-        {
-            get
-            {
-                return year;
-            }
-            set
-            {
-                year = value;
-                OnPropertyChanged("Year");
-            }
-        }
-        public int Pages
-        {
-            get
-            {
-                return pages;
-            }
-            set
-            {
-                pages = value;
-                OnPropertyChanged("Pages");
-            }
-        }
-        public int Price
-        {
-            get
-            {
-                return price;
-            }
-            set
-            {
-                price = value;
-                OnPropertyChanged("Price");
-            }
-        }
+        [StringLength(50)]
+        public string Publisher { get; set; }
 
+        [StringLength(50)]
+        public string Language { get; set; }
 
+        public int? Price { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
+        public int? Pages { get; set; }
+
+        public int? Year { get; set; }
     }
 }
